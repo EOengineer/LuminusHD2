@@ -1,0 +1,279 @@
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+Migrating to CreateActiveStorageTables (20180212013108)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180212013108_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  ↳ db/migrate/20180212013108_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180212013108_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  ↳ db/migrate/20180212013108_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/migrate/20180212013108_create_active_storage_tables.active_storage.rb:16
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180212013108"]]
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-02-12 01:31:33.271272"], ["updated_at", "2018-02-12 01:31:33.271272"]]
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+Started GET "/" for 127.0.0.1 at 2018-02-11 20:31:42 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/gems/activerecord-5.2.0.rc1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/eric/.gem/ruby/2.3.3/gems/railties-5.2.0.rc1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/eric/.gem/ruby/2.3.3/gems/railties-5.2.0.rc1/lib/rails/templates/rails/welcome/index.html.erb (5.3ms)
+Completed 200 OK in 28ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-11 20:31:57 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/eric/.gem/ruby/2.3.3/gems/railties-5.2.0.rc1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/eric/.gem/ruby/2.3.3/gems/railties-5.2.0.rc1/lib/rails/templates/rails/welcome/index.html.erb (3.5ms)
+Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-11 20:34:25 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/eric/.gem/ruby/2.3.3/gems/railties-5.2.0.rc1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/eric/.gem/ruby/2.3.3/gems/railties-5.2.0.rc1/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-11 20:34:28 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/eric/.gem/ruby/2.3.3/gems/railties-5.2.0.rc1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/eric/.gem/ruby/2.3.3/gems/railties-5.2.0.rc1/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 12ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-11 20:35:48 -0500
+  
+SyntaxError (/Users/eric/Desktop/LuminusHD2/config/routes.rb:3: syntax error, unexpected ':', expecting keyword_end
+  root: 'home#index'
+       ^):
+  
+config/routes.rb:3: syntax error, unexpected ':', expecting keyword_end
+Started GET "/" for 127.0.0.1 at 2018-02-11 20:36:06 -0500
+Processing by HomeController#index as HTML
+Completed 406 Not Acceptable in 107ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (HomeController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.0.rc1) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.0.rc1) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.0.rc1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.0.rc1) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.0.rc1) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.0.rc1) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.0.rc1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.0.rc1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.0.rc1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.0.rc1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.0.rc1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.0.rc1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.0.rc1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.0.rc1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0.rc1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0.rc1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.0.rc1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0.rc1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0.rc1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0.rc1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0.rc1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0.rc1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/cookies.rb:663:in `call'
+activerecord (5.2.0.rc1) lib/active_record/migration.rb:558:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0.rc1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0.rc1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0.rc1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0.rc1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0.rc1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0.rc1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0.rc1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0.rc1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+webpacker (3.2.2) lib/webpacker/dev_server_proxy.rb:18:in `perform_request'
+rack-proxy (0.6.3) lib/rack/proxy.rb:57:in `call'
+railties (5.2.0.rc1) lib/rails/engine.rb:524:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-02-11 20:36:47 -0500
+Processing by HomeController#index as HTML
+Completed 406 Not Acceptable in 111ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (HomeController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.2.0.rc1) lib/action_controller/metal/implicit_render.rb:55:in `default_render'
+actionpack (5.2.0.rc1) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (5.2.0.rc1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (5.2.0.rc1) lib/abstract_controller/base.rb:194:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.2.0.rc1) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (5.2.0.rc1) lib/active_support/callbacks.rb:132:in `run_callbacks'
+actionpack (5.2.0.rc1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.0.rc1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.0.rc1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.0.rc1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.0.rc1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.0.rc1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.0.rc1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.0.rc1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.0.rc1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0.rc1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0.rc1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.0.rc1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0.rc1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0.rc1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0.rc1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0.rc1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0.rc1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.4) lib/rack/etag.rb:25:in `call'
+rack (2.0.4) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.4) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.4) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.4) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/cookies.rb:663:in `call'
+activerecord (5.2.0.rc1) lib/active_record/migration.rb:558:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0.rc1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0.rc1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0.rc1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0.rc1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0.rc1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0.rc1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0.rc1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0.rc1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0.rc1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+webpacker (3.2.2) lib/webpacker/dev_server_proxy.rb:18:in `perform_request'
+rack-proxy (0.6.3) lib/rack/proxy.rb:57:in `call'
+railties (5.2.0.rc1) lib/rails/engine.rb:524:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-02-11 20:37:14 -0500
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+Hash: c8e4f033b617eeb2e36c
+Version: webpack 3.11.0
+Time: 607ms
+                                  Asset       Size  Chunks             Chunk Names
+    hello_react-427c4ede896888c986c1.js    2.99 kB       0  [emitted]  hello_react
+    application-6d6fda76e45f26772dbc.js    3.26 kB       1  [emitted]  application
+hello_react-427c4ede896888c986c1.js.map    2.49 kB       0  [emitted]  hello_react
+application-6d6fda76e45f26772dbc.js.map    3.19 kB       1  [emitted]  application
+                          manifest.json  282 bytes          [emitted]  
+   [0] ./app/javascript/packs/application.js 515 bytes {1} [built]
+   [1] ./app/javascript/packs/hello_react.jsx 226 bytes {0} [built] [failed] [1 error]
+
+ERROR in ./app/javascript/packs/hello_react.jsx
+Module build failed: SyntaxError: Unexpected token (10:2)
+
+   8 | 
+   9 | const Hello = props => (
+> 10 |   <div>Hello {props.name}!</div>
+     |   ^
+  11 | )
+  12 | 
+  13 | Hello.defaultProps = {
+
+
+
+Completed 200 OK in 3826ms (Views: 3822.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-11 20:44:02 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/gems/activerecord-5.2.0.rc1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 1841ms (Views: 1830.1ms | ActiveRecord: 0.0ms)
+
+
