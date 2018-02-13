@@ -2,6 +2,13 @@
 // like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
 // of the page.
 
+import $ from 'jquery';
+import 'tether/dist/js/tether';
+import 'popper.js/dist/popper';
+import 'bootstrap/dist/js/bootstrap';
+import './home.scss';
+
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
