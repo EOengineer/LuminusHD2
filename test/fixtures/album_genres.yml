@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  album: one
+  genre: one
+  position: 1
+
+two:
+  album: two
+  genre: two
+  position: 1

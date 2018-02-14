@@ -2357,3 +2357,108 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+Migrating to CreateAlbums (20180214021342)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20180214021342_create_albums.rb:3
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "albums" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "description" text NOT NULL, "release_date" datetime, "artist_id" integer, "label_id" integer, "available" boolean DEFAULT 0, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_124a79559a"
+FOREIGN KEY ("artist_id")
+  REFERENCES "artists" ("id")
+, CONSTRAINT "fk_rails_90545ab01a"
+FOREIGN KEY ("label_id")
+  REFERENCES "labels" ("id")
+)[0m
+  ↳ db/migrate/20180214021342_create_albums.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_albums_on_artist_id" ON "albums" ("artist_id")[0m
+  ↳ db/migrate/20180214021342_create_albums.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_albums_on_label_id" ON "albums" ("label_id")[0m
+  ↳ db/migrate/20180214021342_create_albums.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_albums_on_title_and_artist_id" ON "albums" ("title", "artist_id")[0m
+  ↳ db/migrate/20180214021342_create_albums.rb:13
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180214021342"]]
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+Migrating to CreateTracks (20180214021935)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "time" varchar, "single" boolean DEFAULT 0, "description" text, "position" integer NOT NULL, "album_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_7c47d80164"
+FOREIGN KEY ("album_id")
+  REFERENCES "albums" ("id")
+)[0m
+  ↳ db/migrate/20180214021935_create_tracks.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_tracks_on_album_id" ON "tracks" ("album_id")[0m
+  ↳ db/migrate/20180214021935_create_tracks.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_tracks_on_title_and_album_id" ON "tracks" ("title", "album_id")[0m
+  ↳ db/migrate/20180214021935_create_tracks.rb:13
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180214021935"]]
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+Migrating to CreateLabels (20180214022426)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "labels" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180214022426_create_labels.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180214022426"]]
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+Migrating to CreateArtists (20180214022731)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "artists" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180214022731_create_artists.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180214022731"]]
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+Migrating to CreateGenres (20180214023040)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "genres" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180214023040_create_genres.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180214023040"]]
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+Migrating to CreateAlbumGenres (20180214023152)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "album_genres" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "album_id" integer, "genre_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_b20a97ce29"
+FOREIGN KEY ("album_id")
+  REFERENCES "albums" ("id")
+, CONSTRAINT "fk_rails_529128414c"
+FOREIGN KEY ("genre_id")
+  REFERENCES "genres" ("id")
+)[0m
+  ↳ db/migrate/20180214023152_create_album_genres.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_album_genres_on_album_id" ON "album_genres" ("album_id")[0m
+  ↳ db/migrate/20180214023152_create_album_genres.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_album_genres_on_genre_id" ON "album_genres" ("genre_id")[0m
+  ↳ db/migrate/20180214023152_create_album_genres.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180214023152"]]
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/bin/rake:22
+Started GET "/" for 127.0.0.1 at 2018-02-13 21:53:07 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/eric/.gem/ruby/2.3.3/gems/activerecord-5.2.0.rc1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/homepage
+  Rendered home/index.html.erb within layouts/homepage (1.5ms)
+  Rendered shared/_navbar.html.erb (0.4ms)
+Completed 200 OK in 1946ms (Views: 1934.4ms | ActiveRecord: 0.0ms)
+
+
