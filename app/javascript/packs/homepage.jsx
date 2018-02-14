@@ -13,8 +13,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-import Header from '../src/homepage/header'
-import Section from '../src/homepage/section'
+import Header from '../js/homepage/header'
+import Section from '../js/homepage/section'
 
 class Homepage extends React.Component {
 
