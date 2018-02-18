@@ -8,8 +8,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'admin_style' %>
+    <%= javascript_pack_tag 'admin_login', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'admin_login_style' %>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   </head>
 
@@ -18,16 +18,9 @@
 
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <%= render "shared/sidebar" %>
-        <!-- /#sidebar-wrapper -->
-
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-              
-              
-              <%= render "shared/breadcrumbs" %>
 
               <%= render "shared/flash_alerts" %>
 

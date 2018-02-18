@@ -1,6 +1,6 @@
 class Admin::SessionsController < Admin::BaseController
   skip_before_action :authorize, only: [:new, :create]
-  layout "admin"
+  layout "admin_login"
 
   def new
 

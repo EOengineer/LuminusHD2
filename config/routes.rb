@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     get    '/logout',  to: 'sessions#destroy', as: 'destroy_session'
 
     resources :albums
+    resources :artists
+    resources :genres
+    resources :tracks
+    resources :users
+    
   end
 
 end
