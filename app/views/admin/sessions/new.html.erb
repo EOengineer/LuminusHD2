@@ -1,0 +1,9 @@
+
+<%= form_for :session, url: '/admin/login', method: :post, authenticity_token: true do |f| %>
+  
+  <%= f.text_field :email, placeholder: 'Email' %>
+  <%= f.password_field :password, placeholder: "Password" %>
+
+  <%= f.submit "Login" %>
+
+<% end %>
