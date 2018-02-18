@@ -1,8 +1,25 @@
-Admin Layout
-<%= render "shared/breadcrumbs" %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LuminusHD2</title>
+    <%= csrf_meta_tags %>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<% flash.each do |key, value| %>
-	<div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'admin_style' %>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  </head>
 
-<%= yield %>
+  <body>
+
+  	<%= render "shared/breadcrumbs" %>
+
+		<%= render "shared/flash_alerts" %>
+
+    <%= yield %>
+
+  </body>
+</html>

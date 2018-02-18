@@ -6,7 +6,7 @@ import $ from 'jquery';
 import 'tether/dist/js/tether';
 import 'popper.js/dist/popper';
 import 'bootstrap/dist/js/bootstrap';
-import './home.scss';
+import './home_style.scss';
 
 
 import React from 'react'
