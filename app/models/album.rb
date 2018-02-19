@@ -4,7 +4,7 @@ class Album < ApplicationRecord
   has_many :tracks, dependent: :nullify
 
   has_many :album_genres
-  has_many :albums, through: :album_genres
+  has_many :genres, through: :album_genres
 
   validates :title,
             :description, presence: true

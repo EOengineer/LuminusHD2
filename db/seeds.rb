@@ -9,8 +9,14 @@
 
 puts "resetting database"
 Administrator.destroy_all
+Label.destroy_all
+Genre.destroy_all
+Album.destroy_all
+AlbumGenre.destroy_all
+Artist.destroy_all
+Track.destroy_all
 
-
+require 'faker'
 # Admins
 puts "created admins..."
 generic_pw = 'Password123!'
@@ -23,11 +29,47 @@ Administrator.create!({
 	password_confirmation: generic_pw
 })
 
-Administrator.create!({
+Administrator.create!(
+{
 	first_name: 'Eric',
 	last_name: 'Oligney',
 	email: 'eoengineer@gmail.com',
 	password: generic_pw,
 	password_confirmation: generic_pw
 })
+
+
+puts "creating labels..."
+@labels = Label.create!(
+	{ title: "Geffen" },
+  { title: "Interscope" },
+  { title: "Blue Note" },
+  { title: "Columbia" },
+  { title: "RCA" },
+  { title: "Universal" },
+  { title: "Sony" },
+  { title: "Warner" },
+  { title: "EMI" },
+  { title: "PolyGram" }
+)
+
+
+puts "creating genres"
+@genres = Genre.create!(
+	{ title: "Rock" },
+  { title: "Rap" },
+  { title: "Jazz" },
+  { title: "Blues" },
+  { title: "Soul" },
+  { title: "Hip Hop" },
+  { title: "Metal" },
+  { title: "Folk" },
+  { title: "Country" },
+  { title: "Classical" }
+)
+
+
+
+
+
 

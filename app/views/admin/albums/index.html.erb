@@ -1,0 +1,8 @@
+<%= render partial: "/admin/shared/bootstrap_table", locals: {
+		columns: @columns,
+		rows: @albums,
+		page: @current_page,
+		per_page: @per_page,
+		count: @albums.count
+	}
+%>
