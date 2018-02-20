@@ -12,6 +12,6 @@ class Admin::BaseController < ApplicationController
   private
   
   def authorize
-      redirect_to admin_login_path unless current_user
+      redirect_to admin_new_session_path unless current_user
   end	
 end

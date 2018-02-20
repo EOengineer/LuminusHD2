@@ -1,0 +1,37 @@
+<div class="container container-fluid custom-table pl-1 pr-1">
+  
+    <div class="row d-none d-md-flex">
+
+      <% columns.each do |column| %>
+        <div class="col-md"><%= column[:label] %></div>
+      <% end %>
+
+    </div>
+  
+
+
+    
+
+      <% rows.each do |row| %>
+        <div class="row">
+
+          <% columns.each do |column| %>
+
+            <% if column[:association_field] %>
+              <div class="col-md"><%= row.send(column[:field]).send(column[:association_field]) %></div>
+            <% else %>
+              <div class="col-md"><%= row.send(column[:field]) %></div>
+            <% end %>
+
+          <% end %>
+
+        </div>
+
+        <div class="row spacer d-sm-flex d-md-none">
+          <div class="col"></div>
+        </div>
+        
+      <% end %>
+    
+
+</div>
