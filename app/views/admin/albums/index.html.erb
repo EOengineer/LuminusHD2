@@ -8,6 +8,7 @@
 %>
 
 <%= render partial: "/admin/shared/bootstrap_table_alt", locals: {
+		resource_name: @resource_name,
 		columns: @columns,
 		rows: @albums,
 		page: @current_page,

@@ -1,9 +1,17 @@
-<div class="container container-fluid custom-table pl-1 pr-1">
-  
-    <div class="row d-none d-md-flex">
+<div class="container custom-table pl-10 pr-10">
+  <div class="jumbotron jumbotron-fluid pb-10 bg-white">
+    <div class="container pl-0">
+      <h3>
+        <%= resource_name %><br>
+        <small class="text-muted">Search, filter, and inspect <%=  resource_name.downcase %> here.</small>
+      </h3>
+    </div>
+  </div>
 
-      <% columns.each do |column| %>
-        <div class="col-md"><%= column[:label] %></div>
+    <div class="row d-none d-md-flex justify-content-start border-bottom">
+
+      <% columns.each_with_index do |column, i| %>
+          <div class="col-md"><%= column[:label] %></div>
       <% end %>
 
     </div>
@@ -12,8 +20,8 @@
 
     
 
-      <% rows.each do |row| %>
-        <div class="row">
+      <% rows.each_with_index do |row, i| %>
+        <div class="row align-items-center justify-content-start border-bottom <%= "bg-light" if i.even? %>">
 
           <% columns.each do |column| %>
 

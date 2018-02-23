@@ -1,6 +1,7 @@
 class Admin::AlbumsController < Admin::BaseController
 
 	def index
+		@resource_name = "Albums"
 		@columns = get_columns
 		@albums  = Album.order(title: :asc)
 		@current_page = params[:page] || 1
@@ -12,12 +13,12 @@ class Admin::AlbumsController < Admin::BaseController
 	private
 
 	def get_columns
-		[ { field: 'id', label: 'ID' },
-			{ field: 'title', label: 'Title' },
-			{ field: 'release_date', label: 'Release Date' },
-			{ field: 'artist', label: 'Artist', association_field: 'title' },
-			{ field: 'label', label: 'Label', association_field: 'title' },
-			{ field: 'available', label: 'Available' }]
+		[ { field: 'id', label: 'ID', type: 'int' },
+			{ field: 'title', label: 'Title', type: 'string' },
+			{ field: 'release_date', label: 'Release Date', type: 'date' },
+			{ field: 'artist', label: 'Artist', association_field: 'title', type: 'string' },
+			{ field: 'label', label: 'Label', association_field: 'title', type: 'string' },
+			{ field: 'available', label: 'Available', type: 'boolean' }]
 	end
 
 end
