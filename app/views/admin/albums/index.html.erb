@@ -1,4 +1,5 @@
-<% render partial: "/admin/shared/bootstrap_table", locals: {
+<% render partial: "/admin/shared/bootstrap_table", 
+	locals: {
 		columns: @columns,
 		rows: @albums.take(2),
 		page: @current_page,
@@ -7,7 +8,8 @@
 	}
 %>
 
-<%= render partial: "/admin/shared/bootstrap_table_alt", locals: {
+<%= render partial: "/admin/shared/bootstrap_table_alt", 
+	locals: {
 		resource_name: @resource_name,
 		columns: @columns,
 		rows: @albums,

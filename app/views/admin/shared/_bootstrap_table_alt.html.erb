@@ -8,38 +8,34 @@
     </div>
   </div>
 
-    <div class="row d-none d-md-flex justify-content-start border-bottom">
+  <div class="row d-none d-md-flex justify-content-start border-bottom">
 
-      <% columns.each_with_index do |column, i| %>
-          <div class="col-md"><%= column[:label] %></div>
+    <% columns.each_with_index do |column, i| %>
+        <div class="col-md"><%= column[:label] %></div>
+    <% end %>
+
+  </div>
+  
+
+  <% rows.each_with_index do |row, i| %>
+  
+    <div class="row align-items-center justify-content-start border-bottom <%= "bg-light" if i.even? %>">
+
+      <% columns.each do |column| %>
+        <% if column[:association_field] %>
+          <%= table_column(row.send(column[:field]).send(column[:association_field])) %>
+        <% else %>
+          <%= table_column(row.send(column[:field])) %>
+        <% end %>
       <% end %>
 
     </div>
-  
 
-
-    
-
-      <% rows.each_with_index do |row, i| %>
-        <div class="row align-items-center justify-content-start border-bottom <%= "bg-light" if i.even? %>">
-
-          <% columns.each do |column| %>
-
-            <% if column[:association_field] %>
-              <div class="col-md"><%= row.send(column[:field]).send(column[:association_field]) %></div>
-            <% else %>
-              <div class="col-md"><%= row.send(column[:field]) %></div>
-            <% end %>
-
-          <% end %>
-
-        </div>
-
-        <div class="row spacer d-sm-flex d-md-none">
-          <div class="col"></div>
-        </div>
-        
-      <% end %>
+      <div class="row spacer d-sm-flex d-md-none">
+        <div class="col"></div>
+      </div>
+      
+  <% end %>
     
 
 </div>
