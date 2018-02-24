@@ -3,9 +3,18 @@ class Admin::AlbumsController < Admin::BaseController
 	def index
 		@resource_name = "Albums"
 		@columns 			 = get_columns
-		@albums  			 = Album.order(title: :asc)
-		@current_page  = params[:page] || 1
-		@per_page 		 = params[:per_page] || 10
+		
+		@current_page  = params[:current_page].to_i || 1
+		@per_page 		 = params[:per_page].to_i || 10
+
+		@albums  			 = Album.all
+		@total_count	 = @albums.count
+
+		@query         = @albums.limit(@per_page).offset((@current_page - 1) * @per_page)
+		
+
+
+		@pages 				 = (@total_count / @per_page).floor 
 		add_breadcrumb "Albums", :admin_albums
 	end
 
