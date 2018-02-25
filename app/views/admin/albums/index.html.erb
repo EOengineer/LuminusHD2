@@ -1,20 +1,12 @@
-<% render partial: "/admin/shared/bootstrap_table", 
-	locals: {
-		columns: @columns,
-		rows: @albums.take(2),
-		page: @current_page,
-		per_page: @per_page,
-		count: @albums.count
-	}
-%>
-
-<%= render partial: "/admin/shared/bootstrap_table_alt", 
+<%= render partial: "/admin/shared/bootstrap_table", 
 	locals: {
 		resource_name: @resource_name,
 		columns: @columns,
 		rows: @query,
 		page: @current_page,
 		per_page: @per_page,
-		count: @total_count
+		count: @total_count,
+		sort_field: @sort_field,
+		sort_direction: @sort_direction
 	}
 %>

@@ -1,32 +1,59 @@
-<table class="table table-bordered table-hover">
-  <thead class="thead">
-    <tr>
+<div class="container custom-table pl-10 pr-10 pb-20">
+  <div class="jumbotron jumbotron-fluid pb-10 bg-white">
+    <div class="container pl-0">
+      <h3>
+        <%= resource_name %><br>
+        <small class="text-muted">Search, filter, and inspect <%=  resource_name.downcase %> here.</small>
+      </h3>
+    </div>
+  </div>
+
+  <div class="row d-none d-md-flex justify-content-start border-bottom">
+
+    <% columns.each_with_index do |column, i| %>
+        <div class="col-md custom-table--header">
+         
+          <% if sort_field == column[:field] && sort_direction == 'asc' %>
+            <%= link_to admin_albums_path(per_page: per_page, page: page, sort_field: column[:field], sort_direction: 'desc') do %>
+              <%= column[:label] %>
+              <a class="fa fa-arrow-down"></a>
+            <% end %>
+          <% elsif sort_field == column[:field] && sort_direction == 'desc' %>
+            <%= link_to admin_albums_path(per_page: per_page, page: page, sort_field: column[:field], sort_direction: 'asc') do %>
+              <%= column[:label] %>
+              <a class="fa fa-arrow-up"></a>
+            <% end %>
+          <% else %>
+            <%= link_to admin_albums_path(per_page: per_page, page: page, sort_field: column[:field], sort_direction: 'asc') do %>
+              <%= column[:label] %>
+            <% end %>
+          <% end %>
+        </div>
+    <% end %>
+
+  </div>
+  
+
+  <% rows.each_with_index do |row, i| %>
+  
+    <div class="row align-items-center justify-content-start border-bottom <%= "bg-light" if i.even? %>">
 
       <% columns.each do |column| %>
-        <th><%= column[:label] %></th>
+        <% if column[:association_field] %>
+          <%= table_column(row.send(column[:field]).send(column[:association_field])) %>
+        <% else %>
+          <%= table_column(row.send(column[:field])) %>
+        <% end %>
       <% end %>
 
-    </tr>
-  </thead>
+    </div>
 
-  <tbody>
+      <div class="row spacer d-sm-flex d-md-none">
+        <div class="col"></div>
+      </div>
+      
+  <% end %>
     
+</div>
 
-      <% rows.each do |row| %>
-        <tr>
-
-          <% columns.each do |column| %>
-
-            <% if column[:association_field] %>
-              <th><%= row.send(column[:field]).send(column[:association_field]) %></th>
-            <% else %>
-              <th><%= row.send(column[:field]) %></th>
-            <% end %>
-
-          <% end %>
-        </tr>
-        
-      <% end %>
-    
-  </tbody>
-</table>
+<%= render partial: "admin/shared/pagination" %>
