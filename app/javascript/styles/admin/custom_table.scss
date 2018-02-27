@@ -10,7 +10,8 @@
   vertical-align: middle;
 }
 
-.custom-table--header > a {
+.custom-table--header > a, a.custom-table--data-row {
 	text-decoration: none;
 	color: $body-color; 
 }
+

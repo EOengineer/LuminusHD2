@@ -1,10 +1,30 @@
 <div class="container custom-table pl-10 pr-10 pb-20">
   <div class="jumbotron jumbotron-fluid pb-10 bg-white">
     <div class="container pl-0">
-      <h3>
-        <%= resource_name %><br>
-        <small class="text-muted">Search, filter, and inspect <%=  resource_name.downcase %> here.</small>
-      </h3>
+
+      <div class="row align-items-center justify-content-end">
+
+        <div class="col-12 col-md-6">
+          <h3>
+            <%= resource_name %><br>
+            <small class="text-muted">Search, filter, and inspect <%=  resource_name.downcase %> here.</small>
+          </h3>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <form action="<%= admin_albums_path(per_page: per_page, page: page, sort_field: sort_field, sort_direction: sort_direction) %>" method="POST
+            " class="form-inline float-left float-md-right">
+
+            <div class="form-group mx-sm-3">
+              <input type="text" name="q" class="form-control" id="q" placeholder="Search">
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+            
+          </form>
+        </div>
+        
+      </div>
+
     </div>
   </div>
 
@@ -36,17 +56,19 @@
 
   <% rows.each_with_index do |row, i| %>
   
-    <div class="row align-items-center justify-content-start border-bottom <%= "bg-light" if i.even? %>">
+    <%= link_to admin_album_path(row.id), class: 'custom-table--data-row' do %>
+      <div class="row align-items-center justify-content-start border-bottom <%= "bg-light" if i.even? %>">
 
-      <% columns.each do |column| %>
-        <% if column[:association_field] %>
-          <%= table_column(row.send(column[:field]).send(column[:association_field])) %>
-        <% else %>
-          <%= table_column(row.send(column[:field])) %>
+        <% columns.each do |column| %>
+          <% if column[:association_field] %>
+            <%= table_column(row.send(column[:field]).send(column[:association_field])) %>
+          <% else %>
+            <%= table_column(row.send(column[:field])) %>
+          <% end %>
         <% end %>
-      <% end %>
 
-    </div>
+      </div>
+    <% end %>
 
       <div class="row spacer d-sm-flex d-md-none">
         <div class="col"></div>
