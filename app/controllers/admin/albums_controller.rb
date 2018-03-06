@@ -16,13 +16,36 @@ class Admin::AlbumsController < Admin::BaseController
 		
 
 
-		@pages 				     = (@total_count / @per_page).floor 
+		@pages 				     = (@total_count.fdiv(@per_page)).floor 
 		add_breadcrumb "Albums", :admin_albums
 	end
 
 
 
+	def new
+		@album = Album.new
+	end
+
+
+	def create
+		@album = Album.create(album_params)
+
+		if @album.save
+			redirect_to :admin, @album
+			flash[:success] = "Album successfully created."
+		else
+			# raise ''
+			render :new
+		end
+	end
+
+
+
 	private
+
+	def album_params
+		params.require(:album).permit(:title, :description, :release_date, :artist_id, :label_id, :available)
+	end
 
 	def get_columns
 		[
