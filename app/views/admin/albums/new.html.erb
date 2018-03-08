@@ -31,12 +31,12 @@
 		<div class="form-row">
 			<div class="form-group col-md-6">
 				<%= f.label :artist %>
-				<%= f.collection_select :artist, Artist.all, :id, :title, {}, class: "custom-select" %>
+				<%= f.collection_select :artist, Artist.all, :id, :title, {allow_blank: true}, class: "custom-select chosen-select", data: { placeholder: 'hi', multiple: true } %>
 			</div>
 
 			<div class="form-group col-md-6">
 				<%= f.label :label %>
-				<%= f.collection_select :artist, Label.all, :id, :title, {}, class: "custom-select" %>
+				<%= f.collection_select :artist, Label.all, :id, :title, {}, class: "custom-select chosen-select" %>
 			</div>
 		</div>
 

@@ -14,3 +14,12 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
+//= require chosen-jquery
+
+$( document ).ready(function() {
+    $('.chosen-select').chosen({
+    	width: '100%'
+    });
+});

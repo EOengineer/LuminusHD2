@@ -43,6 +43,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Easy Ordering 
 gem 'acts_as_list'
 
+# chosen needs jquery
+gem 'jquery-rails'
+
+# nice select menus
+gem 'chosen-rails'
+
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 group :development, :test do
