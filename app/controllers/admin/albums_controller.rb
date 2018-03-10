@@ -24,18 +24,41 @@ class Admin::AlbumsController < Admin::BaseController
 
 	def new
 		@album = Album.new
+		add_breadcrumb "Albums", :admin_albums
+		add_breadcrumb "New", :new_admin_album
 	end
 
 
 	def create
+		add_breadcrumb "Albums", :admin_albums
+		add_breadcrumb "New", :new_admin_album
+		
 		@album = Album.create(album_params)
 
 		if @album.save
 			redirect_to :admin, @album
 			flash[:success] = "Album successfully created."
 		else
-			# raise ''
 			render :new
+		end
+	end
+
+	def edit
+		add_breadcrumb "Albums", :admin_albums
+		add_breadcrumb "Edit", :edit_admin_album
+		@album = Album.find(params[:id])
+	end
+
+	def update
+		add_breadcrumb "Albums", :admin_albums
+		add_breadcrumb "Edit", :edit_admin_album
+		@album = Album.update(album_params)
+
+		if @album.save
+			redirect_to :admin, @album
+			flash[:success] = "Album successfully updated."
+		else
+			render :edit
 		end
 	end
 
@@ -44,7 +67,7 @@ class Admin::AlbumsController < Admin::BaseController
 	private
 
 	def album_params
-		params.require(:album).permit(:title, :description, :release_date, :artist_id, :label_id, :available)
+		params.require(:album).permit(:title, :description, :release_date, :artist_id, :label_id, :available, :cover_image)
 	end
 
 	def get_columns

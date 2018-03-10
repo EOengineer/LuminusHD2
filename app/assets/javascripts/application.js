@@ -18,7 +18,7 @@
 //= require jquery_ujs
 //= require chosen-jquery
 
-$( document ).ready(function() {
+$( document ).on('turbolinks:load', function() {
     $('.chosen-select').chosen({
     	width: '100%'
     });

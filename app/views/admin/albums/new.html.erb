@@ -1,70 +1,12 @@
 <div class="container">
-	<%= form_for [:admin, @album], class: "container" do |f| %>
-		
-		<div class="form-row">
-	    <div class="form-group col-md-6">
-				<%= f.label :title %>
-				<%= f.text_field :title, class: "form-control #{" is-invalid" if @album.errors.messages[:title].present?}" %>
 
-				<!-- validation messages -->
-				<% if @album.errors.messages[:title].present? %>
-					<span class="invalid-feedback d-block">
-	          <% @album.errors.messages[:title].each do |error| %>
-	          	<%= error %>
-          	<% end %>
-	        </span>
-        <% end %>
+	<div class="jumbotron bg-white">
+	  <div class="container">
+	    <h1 class="display-4">Create an Album</h1>
+	    <p class="lead">Enter details for the new album below.</p>
+	  </div>
+	</div>
 
-			</div>
-			
-			<div class="form-group col-md-6">
-				<%= f.label :release_date %>
-				<%= datetime_field "album", "release_date", class: "form-control" %>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<%= f.label :description %>
-			<%= f.text_area :description, class: "form-control" %>
-		</div>
-		
-		<div class="form-row">
-			<div class="form-group col-md-6">
-				<%= f.label :artist %>
-				<%= f.collection_select :artist, Artist.all, :id, :title, {allow_blank: true}, class: "custom-select chosen-select", data: { placeholder: 'hi', multiple: true } %>
-			</div>
-
-			<div class="form-group col-md-6">
-				<%= f.label :label %>
-				<%= f.collection_select :artist, Label.all, :id, :title, {}, class: "custom-select chosen-select" %>
-			</div>
-		</div>
-
-		<div class="form-group form-row">
-			<div class="form-check">	
-				<%= f.check_box :available, class: "form-check-input" %>
-				<%= f.label :available, class: "form-check-label"  %>
-			</div>
-		</div>
-
-		<div class="form-group form-row">
-			<%= f.submit class: 'btn btn-primary' %>
-		</div>
-
-	<% end %> 
+	<%= render "/admin/albums/form" %>
 </div>
 
-<%#
-create_table "albums", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "description", null: false
-    t.datetime "release_date"
-    t.integer "artist_id"
-    t.integer "label_id"
-    t.boolean "available", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["artist_id"], name: "index_albums_on_artist_id"
-    t.index ["label_id"], name: "index_albums_on_label_id"
-    t.index ["title", "artist_id"], name: "index_albums_on_title_and_artist_id", unique: true
-    %>
