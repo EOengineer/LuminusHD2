@@ -9,6 +9,7 @@ namespace :setup do
 		Label.destroy_all
 		Genre.destroy_all
 		Album.destroy_all
+		AlbumArtist.destroy_all
 		AlbumGenre.destroy_all
 		Artist.destroy_all
 		Track.destroy_all
@@ -53,9 +54,10 @@ namespace :setup do
 
 			@albums.each do |album|
 				@album = Album.new(album)
-				@album.artist = artist
+				@album.artist_id = artist.id
 				@album.label  = @labels.to_a[i]
 				@album.album_genres.build(genre: @genres.take(1).first)
+				@album.album_artists.build(artist: @artists.take(1).first)
 				@album.save!
 			end
 

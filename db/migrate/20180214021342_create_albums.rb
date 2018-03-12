@@ -4,7 +4,7 @@ class CreateAlbums < ActiveRecord::Migration[5.2]
       t.string :title, null: false
       t.text :description, null: false
       t.datetime :release_date
-      t.references :artist, foreign_key: true, index: true
+      t.references :artist, index: true, foreign_key: true
       t.references :label, foreign_key: true, index: true
       t.boolean :available, default: false
 

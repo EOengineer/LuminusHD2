@@ -56,6 +56,14 @@
 			</div>
 		</div>
 
+		<div class="form-row">	
+			<div class="form-group col-md-12">
+				<%= f.label :accompanying_artists %>
+				<%= f.collection_select :artist_ids, Artist.all, :id, :title, {selected: @album.artist_id}, class: "form-control custom-select chosen-select #{" is-invalid" if @album.errors.messages[:artist].present?}", multiple: true %>
+				<%= render partial: "admin/shared/bootstrap_form_errors", locals: { object: @album, field: :artist } %>
+			</div>
+		</div>
+
 		<div class="form-group form-row">
 			<div class="form-check">	
 				<%= f.check_box :available, class: "form-check-input" %>

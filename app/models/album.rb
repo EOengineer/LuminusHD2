@@ -2,7 +2,12 @@ class Album < ApplicationRecord
   belongs_to :artist
   belongs_to :label
 
+  has_many :artists
+
   has_one_attached :cover_image
+
+  has_many :album_artists
+  has_many :artists, through: :album_artists
 
   has_many :tracks, dependent: :nullify
 

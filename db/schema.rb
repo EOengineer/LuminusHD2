@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 2018_02_18_012514) do
     t.index ["email"], name: "index_administrators_on_email"
   end
 
+  create_table "album_artists", force: :cascade do |t|
+    t.integer "album_id"
+    t.integer "artist_id"
+    t.index ["album_id"], name: "index_album_artists_on_album_id"
+    t.index ["artist_id"], name: "index_album_artists_on_artist_id"
+  end
+
   create_table "album_genres", force: :cascade do |t|
     t.integer "album_id"
     t.integer "genre_id"
