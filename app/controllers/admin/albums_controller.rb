@@ -36,8 +36,8 @@ class Admin::AlbumsController < Admin::BaseController
 		@album = Album.create(album_params)
 
 		if @album.save
-			redirect_to :admin, @album
 			flash[:success] = "Album successfully created."
+			redirect_to admin_albums_path
 		else
 			render :new
 		end
@@ -52,11 +52,12 @@ class Admin::AlbumsController < Admin::BaseController
 	def update
 		add_breadcrumb "Albums", :admin_albums
 		add_breadcrumb "Edit", :edit_admin_album
-		@album = Album.update(album_params)
 
-		if @album.save
-			redirect_to :admin, @album
+		@album = Album.find(params[:id])
+
+		if @album.update(album_params)
 			flash[:success] = "Album successfully updated."
+			redirect_to edit_admin_album_path(@album)
 		else
 			render :edit
 		end

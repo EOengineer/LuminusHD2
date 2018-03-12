@@ -1,5 +1,10 @@
 <%= form_for [:admin, @album], class: "container" do |f| %>
 		
+		<div class="mb-5">
+			<span>Basic information</span>
+			<hr />
+		</div>
+
 		<div class="form-row">
 	    <div class="form-group col-md-6">
 				<%= f.label :title %>
@@ -24,18 +29,30 @@
 			<!-- validation messages -->
 			<%= render partial: "admin/shared/bootstrap_form_errors", locals: { object: @album, field: :description } %>
 		</div>
+
+		<div class="mb-5 mt-5">
+			<span>Label information</span>
+			<hr />
+		</div>
 		
 		<div class="form-row">
-			<div class="form-group col-md-12">
-				<%= f.label :artist %>
-				<%= f.collection_select :artist, Artist.all, :id, :title, {selected: @album.artist_id}, class: "form-control custom-select chosen-select #{" is-invalid" if @album.errors.messages[:artist].present?}" %>
-				<%= render partial: "admin/shared/bootstrap_form_errors", locals: { object: @album, field: :artist } %>
-			</div>
-
 			<div class="form-group col-md-12">
 				<%= f.label :label %>
 				<%= f.collection_select :label, Label.all, :id, :title, {selected: @album.label_id}, class: "form-control custom-select chosen-select #{" is-invalid" if @album.errors.messages[:label].present?}" %>
 				<%= render partial: "admin/shared/bootstrap_form_errors", locals: { object: @album, field: :label } %>
+			</div>
+		</div>
+
+		<div class="mb-5 mt-5">
+			<span>Artist information</span>
+			<hr />
+		</div>
+
+		<div class="form-row">	
+			<div class="form-group col-md-12">
+				<%= f.label :artist %>
+				<%= f.collection_select :artist, Artist.all, :id, :title, {selected: @album.artist_id}, class: "form-control custom-select chosen-select #{" is-invalid" if @album.errors.messages[:artist].present?}" %>
+				<%= render partial: "admin/shared/bootstrap_form_errors", locals: { object: @album, field: :artist } %>
 			</div>
 		</div>
 
@@ -46,22 +63,31 @@
 			</div>
 		</div>
 
-		<div class="form-group form-row">
-			<label id="customFile" class="custom-file">
-			  <input type="file" id="file" class="custom-file-input">
-			  <span class="custom-file-control"></span>
-			</label>
+
+		<div class="mb-5 mt-5">
+			<span>Images</span>
+			<hr />
 		</div>
 
 
-		<div class="form-group form-row">
-			<div class="custom-file">
-	  		<%= f.file_field :cover_image, class: "custom-file-input", id: "customFile" %>
-	  		<label class="custom-file-label" for="customFile">Upload cover image</label>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<div class="custom-file custom-file--sm">
+		  		<%= f.file_field :cover_image, class: "custom-file-input", id: "customFile" %>
+		  		<label class="custom-file-label" for="customFile">Upload cover image</label>
+				</div>
+			</div>
+
+
+			<div class="form-group col-md-6">
+				<div class="custom-file custom-file--sm">
+		  		<%= f.file_field :cover_image, class: "custom-file-input", id: "customFile" %>
+		  		<label class="custom-file-label" for="customFile">Upload album art</label>
+				</div>
 			</div>
 		</div>
 
-		<div class="form-group form-row">
+		<div class="form-group form-row mt-5">
 			<%= f.submit class: 'btn btn-primary' %>
 		</div>
 
